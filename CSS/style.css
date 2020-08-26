@@ -1,7 +1,7 @@
 /*Adding Styles for the Header*/
 .header{
     background-color: rgb(29, 127, 208);
-    height: 180px;
+    height: auto;
 }
 
 .header-container{
@@ -25,7 +25,27 @@
 
 
 
+/*Adding styles to the game section*/
+.game{
+    border: 2px solid;
+}
 
+.game-easy{
+    display: none;
+}
+
+.game-easy,.game-hard{
+    max-width: 650px;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid coral;
+}
+
+.game-hard div{
+    width: 150px;
+    height: 130px;
+    border: 2px solid red;
+}
 
 
 
