@@ -1,0 +1,50 @@
+/*Adding Styles for the Header*/
+.header{
+    background-color: rgb(29, 127, 208);
+    height: 20vh;
+}
+
+.header-container{
+    color: white;
+    margin: 0 auto;
+    padding: 1em 0;
+    max-width: 1120px;
+    width: 90%;
+    text-align: center;
+}
+
+.header-container h2{
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.header-container h1{
+    font-weight: 500;
+    font-size: 4rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Adding default styles*/
+*,*::after,*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
