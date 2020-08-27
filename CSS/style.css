@@ -42,6 +42,11 @@
     width: 90%;
     text-align: center;
     justify-content: space-between;
+    /* align-items: center; */
+}
+
+.new, .status{
+    display: flex;
     align-items: center;
 }
 
@@ -49,10 +54,15 @@
     display: flex;
     justify-content: space-around;
     width: 20%;
+    
 }
 
 .difficulty div{
     cursor: pointer;
+    height: 100%;
+    padding: 0 0.2em;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -91,6 +101,11 @@
     display:none;
 }
 
+/* Additional styles */
+.onClick{
+    background-color: rgb(29, 127, 208);
+    color: white;
+}
 
 
 
