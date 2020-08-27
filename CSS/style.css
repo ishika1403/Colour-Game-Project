@@ -50,6 +50,10 @@
     align-items: center;
 }
 
+.new{
+    cursor: pointer;
+}
+
 .difficulty{
     display: flex;
     justify-content: space-around;
@@ -102,7 +106,7 @@
 }
 
 /* Additional styles */
-.onClick{
+.onButtonClick{
     background-color: rgb(29, 127, 208);
     color: white;
 }
