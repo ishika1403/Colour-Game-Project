@@ -15,7 +15,6 @@ let colorObject = { red:29,
     blue: 208
 };
 
-
 /*Adding Event Listener to the level selector div*/
 level.addEventListener("click",function(event){
     if(event.target.textContent === "Easy"){
@@ -105,8 +104,9 @@ function headerRGBChange(){
 
 
 /*Changing the color for the header*/
-function headerColorChange(){
-    header.style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
+function headerColorChange(winColor){
+    // header.style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
+    header.style.background = winColor;
 }
 
 gameEasy.addEventListener("click",function(e){
@@ -114,8 +114,9 @@ gameEasy.addEventListener("click",function(e){
     if(e.target.parentElement.children[easyWinnerBox] === e.target)
     {
         // console.log("Successful");
-        headerColorChange();
-        
+        headerColorChange(e.target.style.background);
+
+
     }
     else
     {
@@ -123,3 +124,4 @@ gameEasy.addEventListener("click",function(e){
         e.target.style.display = "none";
     }
 });
+
