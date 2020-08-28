@@ -2,7 +2,7 @@ const level = document.querySelector(".difficulty");
 const gameEasy = document.querySelector(".game-easy");
 const gameHard = document.querySelector(".game-hard");
 const header = document.querySelector(".header");
-const newcColorBtn=document.querySelector(".new");
+const newColorBtn=document.querySelector(".new");
 const colors = document.querySelectorAll("span");
 const boxEasy = document.querySelectorAll(".game-easy div");
 const boxHard = document.querySelectorAll(".game-hard div");
@@ -27,6 +27,8 @@ level.addEventListener("click",function(event){
         gameEasy.classList.remove("inactive");
 
         easy=true;
+
+        newGame();
     }
     else if(event.target.textContent === "Hard"){
 
@@ -39,12 +41,20 @@ level.addEventListener("click",function(event){
         gameHard.classList.remove("inactive");
 
         easy=false;
+
+        newGame();
     }
 });
 
 
+/*Adding Event Listener to listen for the DOM Content being loaded */
+window.addEventListener("DOMContentLoaded", newGame);
+
 /*Adding Event Listener To The New Color Button*/
-newcColorBtn.addEventListener("click",()=>{
+newColorBtn.addEventListener("click", newGame);
+
+/*Function to assign new colors to the boxes*/
+function newGame(){
     randomColor();
     headerRGBChange();
 
@@ -61,7 +71,7 @@ newcColorBtn.addEventListener("click",()=>{
             randomColor();
         }
     }
-});
+}
 
 /*Adding function for generating random RGB color*/
 function randomColor(){
