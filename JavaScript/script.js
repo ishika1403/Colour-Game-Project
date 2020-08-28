@@ -7,6 +7,8 @@ const colors = document.querySelectorAll("span");
 const boxEasy = document.querySelectorAll(".game-easy div");
 const boxHard = document.querySelectorAll(".game-hard div");
 
+let easyWinnerBox;
+let hardWinnerBox;
 let easy = false;
 let colorObject = { red:29,
     green: 127,
@@ -57,18 +59,26 @@ newColorBtn.addEventListener("click", newGame);
 function newGame(){
     randomColor();
     headerRGBChange();
-
+    headerColorChange();
     if(easy === true){
+        easyWinnerBox = randomNumber(0,3);
+        boxEasy[easyWinnerBox].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
         for(let i=0;i<boxEasy.length;i++){
-            boxEasy[i].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
-            randomColor();
+            if(i!==easyWinnerBox){
+                randomColor();
+                boxEasy[i].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
+            }
         }
     }
 
     else if(easy === false){
+        hardWinnerBox = randomNumber(0,6);
+        boxHard[hardWinnerBox].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
         for(let i=0;i<boxHard.length;i++){
-            boxHard[i].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
-            randomColor();
+            if(i!==hardWinnerBox){
+                randomColor();
+                boxHard[i].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
+            }
         }
     }
 }
