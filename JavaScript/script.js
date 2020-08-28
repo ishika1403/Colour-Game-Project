@@ -4,6 +4,8 @@ const gameHard = document.querySelector(".game-hard");
 const header = document.querySelector(".header");
 const newcColorBtn=document.querySelector(".new");
 const colors = document.querySelectorAll("span");
+const boxEasy = document.querySelectorAll(".game-easy div");
+const boxHard = document.querySelectorAll(".game-hard div");
 
 let easy = false;
 let colorObject = { red:29,
@@ -45,6 +47,20 @@ level.addEventListener("click",function(event){
 newcColorBtn.addEventListener("click",()=>{
     randomColor();
     headerRGBChange();
+
+    if(easy === true){
+        for(let i=0;i<boxEasy.length;i++){
+            boxEasy[i].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
+            randomColor();
+        }
+    }
+
+    else if(easy === false){
+        for(let i=0;i<boxHard.length;i++){
+            boxHard[i].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
+            randomColor();
+        }
+    }
 });
 
 /*Adding function for generating random RGB color*/
@@ -73,6 +89,5 @@ function headerColorChange(){
     header.style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
 }
 
-
-//When "New Color" is clicked RGB value changes
-//If wrong coloured box is chosen - "STATUS" shows try again otherwise it is not visible
+/*Setting random colors to each box*/
+/*"Try Again" message for wrong choice*/
