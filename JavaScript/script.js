@@ -109,5 +109,17 @@ function headerColorChange(){
     header.style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
 }
 
-/*Setting random colors to each box*/
-/*"Try Again" message for wrong choice*/
+gameEasy.addEventListener("click",function(e){
+    // console.dir(e.target);
+    if(e.target.parentElement.children[easyWinnerBox] === e.target)
+    {
+        // console.log("Successful");
+        headerColorChange();
+        
+    }
+    else
+    {
+        // console.log("Not successfull");
+        e.target.style.display = "none";
+    }
+});
