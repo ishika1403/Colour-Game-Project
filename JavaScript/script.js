@@ -58,7 +58,7 @@ newColorBtn.addEventListener("click", newGame);
 function newGame(){
     randomColor();
     headerRGBChange();
-    headerColorChange();
+
     if(easy === true){
         easyWinnerBox = randomNumber(0,3);
         boxEasy[easyWinnerBox].style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
@@ -80,6 +80,17 @@ function newGame(){
             }
         }
     }
+
+    header.style.background = "rgb(29, 127, 208)";
+    masterReset();
+}
+
+/*Function to master reset every block*/
+function masterReset(){
+    for(let i=0;i<boxEasy.length;i++)
+        boxEasy[i].style.pointerEvents = "auto";
+    for(let i=0;i<boxHard.length;i++)
+        boxHard[i].style.pointerEvents = "auto";
 }
 
 /*Adding function for generating random RGB color*/
@@ -102,26 +113,39 @@ function headerRGBChange(){
 }
 
 
+gameEasy.addEventListener("click",function(e){
+    // console.dir(e.target);
+    console.log(e.target);
+    if(!e.target.classList.contains("gameEasy")){
+        //console.log("reached");
+        if(e.target.parentElement.children[easyWinnerBox] === e.target){
+            //Change the color of the header
+            headerColorChange(e.target.style.background);
+            //Make all the buttons visible and unclickable
+            resetSiblings(e.target.parentElement,e.target.style.background);
+        }
+        else if(e.target.parentElement.children[easyWinnerBox] !== e.target){
+            // console.log("Not successfull");
+            e.target.classList.add("hiddenVisibility");
+        }
+    }
+    
+});
 
 /*Changing the color for the header*/
 function headerColorChange(winColor){
-    // header.style.background = `rgb(${colorObject.red},${colorObject.green},${colorObject.blue})`;
     header.style.background = winColor;
 }
+/*Function to make all the siblings visible*/
+function resetSiblings(parent,winColor){
+    for(let i=0;i<parent.children.length;i++){
+        if(parent.children[i].classList.contains("hiddenVisibility")){
+            parent.children[i].classList.remove("hiddenVisibility");
+            console.log("Removed");
+        }
+            
 
-gameEasy.addEventListener("click",function(e){
-    // console.dir(e.target);
-    if(e.target.parentElement.children[easyWinnerBox] === e.target)
-    {
-        // console.log("Successful");
-        headerColorChange(e.target.style.background);
-
-
+        parent.children[i].style.pointerEvents= "none";
+        parent.children[i].style.background = winColor;    
     }
-    else
-    {
-        // console.log("Not successfull");
-        e.target.style.display = "none";
-    }
-});
-
+}

@@ -110,6 +110,9 @@
     color: white;
 }
 
+.hiddenVisibility{
+    visibility: hidden;
+}
 
 
 /*Adding default styles*/
