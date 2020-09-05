@@ -91,6 +91,7 @@ function masterReset(){
         boxEasy[i].style.pointerEvents = "auto";
     for(let i=0;i<boxHard.length;i++)
         boxHard[i].style.pointerEvents = "auto";
+    gameEasy.style.pointerEvents = "auto";
 }
 
 /*Adding function for generating random RGB color*/
@@ -146,6 +147,8 @@ function resetSiblings(parent,winColor){
             
 
         parent.children[i].style.pointerEvents= "none";
+        console.log("Reached pointerevent");
         parent.children[i].style.background = winColor;    
     }
+    gameEasy.style.pointerEvents="none";
 }
