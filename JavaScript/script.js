@@ -172,4 +172,5 @@ function resetSiblings(parent,winColor){
         parent.children[i].style.background = winColor;    
     }
     gameEasy.style.pointerEvents="none";
+    gameHard.style.pointerEvents="none";
 }
