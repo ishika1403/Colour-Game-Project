@@ -117,10 +117,10 @@ function headerRGBChange(){
     colors[2].textContent = colorObject.blue;
 }
 
-
+/*Adding event listener to easy level game*/
 gameEasy.addEventListener("click",function(e){
     // console.dir(e.target);
-    console.log(e.target);
+    // console.log(e.target);
     if(!e.target.classList.contains("gameEasy")){
         //console.log("reached");
         if(e.target.parentElement.children[easyWinnerBox] === e.target){
@@ -135,6 +135,23 @@ gameEasy.addEventListener("click",function(e){
         }
     }
     
+});
+
+/*Adding event listener to hard level game*/
+gameHard.addEventListener("click",function(e){
+    if(!e.target.classList.contains("gameHard")){
+        //console.log("reached");
+        if(e.target.parentElement.children[hardWinnerBox] === e.target){
+            //Change the color of the header
+            headerColorChange(e.target.style.background);
+            //Make all the buttons visible and unclickable
+            resetSiblings(e.target.parentElement,e.target.style.background);
+        }
+        else if(e.target.parentElement.children[hardWinnerBox] !== e.target){
+            // console.log("Not successfull");
+            e.target.classList.add("hiddenVisibility");
+        }
+    }
 });
 
 /*Changing the color for the header*/
