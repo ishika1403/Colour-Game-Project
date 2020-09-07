@@ -87,10 +87,14 @@ function newGame(){
 
 /*Function to master reset every block*/
 function masterReset(){
-    for(let i=0;i<boxEasy.length;i++)
+    for(let i=0;i<boxEasy.length;i++){
         boxEasy[i].style.pointerEvents = "auto";
-    for(let i=0;i<boxHard.length;i++)
+        boxEasy[i].classList.remove("hiddenVisibility");
+        }
+    for(let i=0;i<boxHard.length;i++){
         boxHard[i].style.pointerEvents = "auto";
+        boxHard[i].classList.remove("hiddenVisibility");
+    }
     gameEasy.style.pointerEvents = "auto";
 }
 
